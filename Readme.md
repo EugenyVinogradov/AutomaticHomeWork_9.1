@@ -1,1 +1,1 @@
-[![Статус сборки](https://ci.appveyor.com/api/projects/status/9m44drp365n88xql?svg=true)](https://ci.appveyor.com/project/EugenyVinogradov/automatichomework-9-1 )
+[![Build status](https://ci.appveyor.com/api/projects/status/w9syctg4nr9unrkw?svg=true)](https://ci.appveyor.com/project/EugenyVinogradov/automatichomework-9-1)
