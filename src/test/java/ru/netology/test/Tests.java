@@ -1,18 +1,26 @@
 package ru.netology.test;
 
-import com.codeborne.selenide.Condition;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.*;
 import ru.netology.page.AuthPage;
 import ru.netology.dataHelper.DataHelper;
 
-import java.time.Duration;
 
 import static com.codeborne.selenide.Selenide.open;
 
 
 public class Tests {
+
+    @BeforeAll
+    static void setUpAll() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
+    }
+
+    @AfterAll
+    static void tearDownAll() {
+        SelenideLogger.removeListener("allure");
+    }
 
     @BeforeEach
     void setup() {
@@ -183,7 +191,6 @@ public class Tests {
         var transferPage = cardsPage.depositActionSecondCard();
         transferPage.isPageExist();
         transferPage.transfer(sumTransferIsNotValidValue, DataHelper.getFirstCardsInfo().getCardNumber());
-        System.out.println(sumTransferIsNotValidValue);
         transferPage.errorNotValidValue();
     }
 
